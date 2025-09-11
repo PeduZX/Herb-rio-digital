@@ -83,7 +83,7 @@ footer {
   align-items: center;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 890px) {
   header {
     flex-direction: column;
     padding: 10px 0;

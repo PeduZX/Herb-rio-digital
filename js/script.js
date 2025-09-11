@@ -23,7 +23,7 @@ if (form) {
 
     const data = await resp.json();
     alert("Planta cadastrada: " + nomePopular);
-    console.log(data);
+    
   });
 }
 
@@ -35,7 +35,7 @@ async function carregarPlantas() {
 
   const resp = await fetch("http://localhost:3000/plantas/listar");
   const plantas = await resp.json();
-  console.log(plantas);
+
 
   lista.innerHTML = "";
 
