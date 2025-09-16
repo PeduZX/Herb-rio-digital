@@ -1,4 +1,4 @@
-const form = document.getElementById("formCadastro");
+const form = document.getElementById("formCadastro"); // Verifica se está na página do forms
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -58,4 +58,5 @@ async function carregarPlantas() {
 }
 
 carregarPlantas();
+
 
