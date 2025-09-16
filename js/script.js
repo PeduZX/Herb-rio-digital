@@ -1,4 +1,3 @@
-// --- CADASTRAR PLANTA ---
 const form = document.getElementById("formCadastro");
 if (form) {
   form.addEventListener("submit", async (e) => {
@@ -59,3 +58,4 @@ async function carregarPlantas() {
 }
 
 carregarPlantas();
+
