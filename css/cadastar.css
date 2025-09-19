@@ -158,11 +158,10 @@ textarea:hover {
 label{
   background-color: white;
 }
-#btn-cadastrar{
+#btn-cadastrar, .btn-resetar{
   width: 100%;
   max-width: 564px; 
-  height: 3rem;
-  width: 20rem;
+  padding: 20px;
   margin: 20px auto 0 auto;
   border-radius: 50px;
   border: none;
@@ -172,13 +171,25 @@ label{
   font-weight: 800;
   cursor: pointer;
   margin-top: 20px;
-    transition: 0.35s;
+  transition: 0.35s;
   
 }
 #btn-cadastrar:hover{
   background: #324b1c;
   transition: 0.35s;
   box-shadow: 4px 4px 6px #4F772D;
+}
+
+.btn-resetar:hover{
+  background-color: red;
+  box-shadow:  2px 2px 2px 2px grey;
+}
+
+#div-btn{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
 }
 
 footer{

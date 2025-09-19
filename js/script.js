@@ -1,4 +1,4 @@
-const form = document.getElementById("formCadastro"); // Verifica se está na página do forms
+const form = document.getElementById("formCadastro");
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -26,6 +26,21 @@ if (form) {
   });
 }
 
+async function deletarPlantas(id) {
+  try {
+    const response = await fetch(`http://localhost:3000/plantas/deletar/${id}`, {
+      method: "DELETE"
+    });
+
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Erro ao deletar planta:", error);
+  }
+  alert("Usuario deletado com sucesso!")
+}
+
+
 
 // --- LISTAR PLANTAS ---
 async function carregarPlantas() {
@@ -40,6 +55,7 @@ async function carregarPlantas() {
 
   (plantas.data || plantas).forEach((p) => {
     const div = document.createElement("div");
+    const btnDel = document.createElement("button");
     div.innerHTML = `
       <div class="card1">
         <img src="${p.imagem}" alt="${p.nome_popular}">
@@ -52,11 +68,11 @@ async function carregarPlantas() {
         <p id="p-parte">Parte Utilizada: ${p.parte_utilizada}</p>
         <p id="p-modo">Modo de Preparo: ${p.modo_preparo}</p>
         <p id="p-contraindicacoes">Contraindicações: ${p.contraindicacoes}</p>
+        <button id= "btn-delete" onclick="deletarPlantas(${p.id})">DELETAR</button>
       </div>`;
     lista.appendChild(div);
   });
 }
 
+
 carregarPlantas();
-
-

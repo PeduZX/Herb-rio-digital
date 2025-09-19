@@ -1,4 +1,3 @@
-// Importar pacotes para aplicação
 const express = require("express");
 const cors = require("cors");
 const connection = require("./db_config");
@@ -48,6 +47,34 @@ console.log(params);
       response.status(201).json({ success: true, message: "Sucesso", data: results });
     } else {
       response.status(400).json({ success: false, message: "Sem sucesso", data: err });
+    }
+  });
+});
+
+
+
+// Rota PUT para editar usuário
+app.put("/plantas/editar/:id", (request, response) => {
+  let params = [request.body.nomePopular, request.body.nomeCientifico, request.body.familiaBotanica, request.body.origem, request.body.usosMedicinais, request.body.principioAtivos, request.body.parteUtilizada, request.body.modoPreparo, request.body.contraindicacoes, request.body.imagem,];
+  let query = "UPDATE plantas SET name = ? WHERE id = ?";
+  connection.query(query, params, (err, results) => {
+    if (results) {
+      response.status(200).json({ success: true, message: "Sucesso", data: results });
+    } else {
+      response.status(400).json({ success: false, message: "Sem Sucesso", data: err });
+    }
+  });
+});
+
+// Rota DELETE para excluir usuário
+app.delete("/plantas/deletar/:id", (request, response) => {
+  let params = [request.params.id];
+  let query = "DELETE FROM plantas WHERE id = ?;";
+  connection.query(query, params, (err, results) => {
+    if (results) {
+      response.status(200).json({ success: true, message: "Sucesso", data: results });
+    } else {
+      response.status(400).json({ success: false, message: "Sem Sucesso", data: err });
     }
   });
 });

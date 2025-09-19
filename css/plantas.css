@@ -70,6 +70,30 @@ li {
     gap: 10px;
     
 }
+#btn-delete{
+
+    width: 100%;
+    max-width: 564px; 
+    padding: 20px;
+    margin: 20px auto 0 auto;
+    border-radius: 50px;
+    border: none;
+    background: #4F772D;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.35s;
+    
+  }
+
+#btn-delete:hover{
+    background-color: red;
+    box-shadow:  2px 2px 2px 2px grey;
+  }
+
+
 
 
 footer{
