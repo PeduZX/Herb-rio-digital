@@ -28,17 +28,21 @@ if (form) {
 
 async function deletarPlantas(id) {
   try {
-    const response = await fetch(`http://localhost:3000/plantas/deletar/${id}`, {
+    if(confirm("Tem certeza que deseja deletar essa planta?") === true) {
+      const response = await fetch(`http://localhost:3000/plantas/deletar/${id}`, {
       method: "DELETE"
     });
-
+    } else {
+      return;
+    }
     const data = await response.json();
     console.log(data);
   } catch (error) {
     console.error("Erro ao deletar planta:", error);
   }
- alert(`Planta deletada com sucesso!`);
+  alert(`Planta deletada com sucesso!`);
   carregarPlantas();
+
 }
 
 
@@ -77,4 +81,3 @@ async function carregarPlantas() {
 
 
 carregarPlantas();
-
