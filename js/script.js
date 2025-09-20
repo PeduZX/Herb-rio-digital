@@ -37,7 +37,8 @@ async function deletarPlantas(id) {
   } catch (error) {
     console.error("Erro ao deletar planta:", error);
   }
-  alert("Usuario deletado com sucesso!")
+ alert(`Planta deletada com sucesso!`);
+  carregarPlantas();
 }
 
 
@@ -76,3 +77,4 @@ async function carregarPlantas() {
 
 
 carregarPlantas();
+
